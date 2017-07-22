@@ -1,0 +1,11 @@
+// 既定の設定とユーザー設定を上書きするには、このファイル内に設定を挿入します
+{
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "docker-compose.yml"
+      ],
+      "url": "https://raw.githubusercontent.com/docker/compose/master/compose/config/config_schema_v2.3.json"
+    }
+  ]
+}

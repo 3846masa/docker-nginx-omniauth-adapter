@@ -1,0 +1,18 @@
+version: '2'
+services:
+  proxy:
+    image: jwilder/nginx-proxy:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./vhost.d:/etc/nginx/vhost.d:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    links:
+      - adapter
+  adapter:
+    image: 3846masa/nginx-omniauth-adapter
+    build: ./adapter
+    env_file:
+      - auth.env
+    restart: always
+    network_mode: bridge

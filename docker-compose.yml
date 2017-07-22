@@ -1,0 +1,11 @@
+version: '2'
+services:
+  adapter:
+    image: 3846masa/nginx-omniauth-adapter
+    build: ./adapter
+    ports:
+      - "80:8080"
+    env_file:
+      - auth.env
+    restart: always
+    network_mode: bridge
