@@ -1,5 +1,8 @@
 FROM ruby:2.2-alpine
 
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
 RUN apk add --no-cache git build-base linux-headers
 COPY Gemfile* /usr/src/app/
 RUN bundle install -j4 --path vendor/bundle --without 'development test'
